@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/rechercher"
+        />
+    <item
+        android:id="@+id/nav_add"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="@string/publier"
+        />
+    <item
+        android:id="@+id/nav_trajets"
+        android:icon="@drawable/ic_baseline_local_taxi_24"
+        android:title="@string/vostrajets"
+        />
+    <item
+        android:id="@+id/nav_messages"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="@string/messages"
+        />
+    <item
+        android:id="@+id/nav_profil"
+        android:icon="@drawable/ic_baseline_person_outline_24"
+        android:title="@string/profil"
+        />
+
+
+
+</menu>

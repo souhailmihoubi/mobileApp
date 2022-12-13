@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Covoiturage</string>
+    <string name="profil">Profil</string>
+    <string name="messages">Messages</string>
+    <string name="publier">Publier</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rechercher">Rechercher</string>
+    <string name="vostrajets">Vos Trajets</string>
+    <string name="title_activity_search_map">SearchMapActivity</string>
+</resources>
