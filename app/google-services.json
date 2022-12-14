@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "49942489791",
-    "project_id": "covoiturageprojectmdw",
-    "storage_bucket": "covoiturageprojectmdw.appspot.com"
+    "project_number": "188153123720",
+    "project_id": "appproject-f5d7e",
+    "storage_bucket": "appproject-f5d7e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:49942489791:android:1ab5984118013ae2a1b40a",
+        "mobilesdk_app_id": "1:188153123720:android:4275f7623710c33d9b603d",
         "android_client_info": {
           "package_name": "com.example.covoiturage0"
         }
       },
       "oauth_client": [
         {
-          "client_id": "49942489791-22ubhko9sskinu5327knc6q59osn5cj4.apps.googleusercontent.com",
+          "client_id": "188153123720-4rk7uvtopmgludb961parr7a61no1m49.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAtp3PPf7-SN9urVF1ABMOQF-_28fSgsDg"
+          "current_key": "AIzaSyB4L8DlSH0Ng9SyJjTf7zC3r9XPPPkV5sY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "49942489791-22ubhko9sskinu5327knc6q59osn5cj4.apps.googleusercontent.com",
+              "client_id": "188153123720-4rk7uvtopmgludb961parr7a61no1m49.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

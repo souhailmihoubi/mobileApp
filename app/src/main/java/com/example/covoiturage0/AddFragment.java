@@ -26,11 +26,12 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -45,10 +46,9 @@ public class AddFragment extends Fragment {
     Uri uri;
 
     View view;
-    //progress dialog
-    ProgressDialog pd;
-    //FireStore instance
-    FirebaseFirestore db;
+
+    FirebaseDatabase db;
+    DatabaseReference root;
 
     @Nullable
     @Override
@@ -70,10 +70,10 @@ public class AddFragment extends Fragment {
         });
 
         add = view.findViewById(R.id.addbtn);
-        //preogress dialog
-        pd = new ProgressDialog(getContext());
-        //firestore
-        db = FirebaseFirestore.getInstance();
+
+        db = FirebaseDatabase.getInstance();
+        root = db.getReference().child("Data");
+
 
 
 
@@ -99,20 +99,57 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //input data
-                String dest = destination.getText().toString().trim();
-                String  dt = datetxt.getText().toString().trim();
 
-                //upload data
-                uploadData(dest,dt);
+                String dest = destination.getText().toString();
+                String  dt = datetxt.getText().toString();
+                Uri img = uri;
+                String id = UUID.randomUUID().toString();
+
+               /* Map<String,Object> doc = new HashMap<>();
+                doc.put("id",id);
+                doc.put("Destination",dest);
+                doc.put("Date",dt);
+                doc.put("image", img);
+
+                root.push().setValue(doc);*/
+
+
+
+
+                Bundle bundle = new Bundle();
+                bundle.putString("dest",dest);
+                bundle.putString("date",dt);
+                bundle.putParcelable("image",img);
+                TrajetsFragment tf = new TrajetsFragment();
+                tf.setArguments(bundle);
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container,tf)
+                        .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .commit();
             }
         });
 
-
-
-
         return view;
     }
-    private void uploadData(String dest,String dt){
+
+    private void updateLabel(){
+        String myFormat="MM/dd/yy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+        datetxt.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                uri = data.getData();
+                image.setImageURI(uri);
+            }
+        }
+    }
+
+/* private void uploadData(String dest,String dt,String img){
         //set title
         pd.setTitle("Add data");
         //show progress bar
@@ -152,22 +189,5 @@ public class AddFragment extends Fragment {
                 });
 
 
-    }
-    private void updateLabel(){
-        String myFormat="MM/dd/yy";
-        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
-        datetxt.setText(dateFormat.format(myCalendar.getTime()));
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == 1) {
-                uri = data.getData();
-                image.setImageURI(uri);
-            }
-        }
-    }
-
-
+    }*/
 }
